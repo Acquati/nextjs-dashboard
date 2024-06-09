@@ -180,9 +180,11 @@ const revenue = [
   { month: 'Dec', revenue: 4800 },
 ]
 
-module.exports = {
+const placeholderData = {
   users,
   customers,
   invoices,
   revenue,
 }
+
+export default placeholderData

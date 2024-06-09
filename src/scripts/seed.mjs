@@ -1,5 +1,5 @@
 import { db } from '@vercel/postgres'
-import { invoices, customers, revenue, users } from '../lib/placeholder-data.js'
+import placeholderData from '../lib/placeholder-data.mjs'
 import { hash } from 'bcrypt'
 
 async function seedUsers(client) {
@@ -19,7 +19,7 @@ async function seedUsers(client) {
 
     // Insert data into the "users" table
     const insertedUsers = await Promise.all(
-      users.map(async (user) => {
+      placeholderData.users.map(async (user) => {
         const hashedPassword = await hash(user.password, 10)
         return client.sql`
         INSERT INTO users (id, name, email, password)
@@ -60,7 +60,7 @@ async function seedInvoices(client) {
 
     // Insert data into the "invoices" table
     const insertedInvoices = await Promise.all(
-      invoices.map(
+      placeholderData.invoices.map(
         (invoice) => client.sql`
         INSERT INTO invoices (customer_id, amount, status, date)
         VALUES (${invoice.customer_id}, ${invoice.amount}, ${invoice.status}, ${invoice.date})
@@ -99,7 +99,7 @@ async function seedCustomers(client) {
 
     // Insert data into the "customers" table
     const insertedCustomers = await Promise.all(
-      customers.map(
+      placeholderData.customers.map(
         (customer) => client.sql`
         INSERT INTO customers (id, name, email, image_url)
         VALUES (${customer.id}, ${customer.name}, ${customer.email}, ${customer.image_url})
@@ -134,7 +134,7 @@ async function seedRevenue(client) {
 
     // Insert data into the "revenue" table
     const insertedRevenue = await Promise.all(
-      revenue.map(
+      placeholderData.revenue.map(
         (rev) => client.sql`
         INSERT INTO revenue (month, revenue)
         VALUES (${rev.month}, ${rev.revenue})
