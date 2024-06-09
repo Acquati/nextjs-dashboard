@@ -1,6 +1,7 @@
-import { lusitana } from '@/ui/fonts'
-import { AtSymbolIcon, KeyIcon, ExclamationCircleIcon } from '@heroicons/react/24/outline'
+// import { AtSymbolIcon, KeyIcon, ExclamationCircleIcon } from '@heroicons/react/24/outline'
+import { AtSymbolIcon, KeyIcon } from '@heroicons/react/24/outline'
 import { ArrowRightIcon } from '@heroicons/react/20/solid'
+import { lusitana } from '@/ui/fonts'
 import { Button } from '@/ui/button'
 
 export default function LoginForm() {
